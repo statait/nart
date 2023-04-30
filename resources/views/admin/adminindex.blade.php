@@ -25,6 +25,7 @@
 					class="mb-0 text-capitalize font-weight-bold"
 				  >
 					Today's Sale
+					
 				  </p>
 				
 				  <h5
