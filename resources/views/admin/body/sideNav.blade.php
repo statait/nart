@@ -113,7 +113,7 @@ $sites = App\Models\Site::latest()->first();
   <li class="nav-item ">
     <a class="nav-link {{ ($route == 'category.view')? 'active':'' }}" href="{{ route('category.view') }}">
     <span class="sidenav-mini-icon"></span>
-    <span class="sidenav-normal"> Category View </span>
+    <span class="sidenav-normal">Manage Category</span>
     </a>    
 </li>
 
