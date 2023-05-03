@@ -80,7 +80,7 @@
 				   <tr>
 					  <td><h6 class="mb-0 text-sm">{{ $item->sale_date }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->invoice }}</h6></td>
-					  @if ($customer)
+					  @if ($item->customer_id)
 					<td class="align-middle text-center text-sm">
 						<span class="text-lg font-weight-bold">
 						  {{$item->customer->customer_name}}
