@@ -128,6 +128,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         
         $today = Carbon::today();
         $schedules = Schedule::whereDate('schedule_date', $today)->orderBy('time', 'ASC')->get();
+
         return view('admin.adminindex', compact('products','customers','sales','sd','inventory','schedules','dues','banks'));
     })->name('admin.dashboard');
 });

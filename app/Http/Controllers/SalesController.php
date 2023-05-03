@@ -139,7 +139,9 @@ class SalesController extends Controller
     }
 
     public function SaleFilterView (){
-        return view('admin.Backend.Sales.filterSaleForm');
+        $sale = Product::where('status',1)->count();
+        $productss = Product::where('status',1)->count();
+        return view('admin.Backend.Sales.filterSaleForm',compact('sale','productss'));
     }
 
     public function SaleFilter(Request $request){

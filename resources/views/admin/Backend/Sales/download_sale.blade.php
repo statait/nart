@@ -170,7 +170,9 @@
 				<tr class="heading">
 					<td>No.</td>
 					<td>Product Name</td>
-					<td>Quantity/MT</td>
+					<td>Quantity</td>
+					<td>Price</td>
+					<td>Total</td>
 				</tr>
 
         @php
@@ -180,29 +182,39 @@
         @foreach ($salesItems as $item)
 				<tr class="item">
 					<td>{{$sl++}}</td>   
-					<td>{{$item->product->product_name}}</td>
+					<td>{{$item->product->product_name}}({{$item->product->product_code}})</td>
 					<td>{{$item->qty}}</td>
+					<td>{{$item->rate}}</td>
+					<td>{{$item->amount}}</td>
 				</tr>
         @endforeach
-
+		<tr>
+			<td></td>
+		</tr>
+		<tr class="item">
+			<td></td>   
+			<td></td>
+			<td></td>
+			<td><strong> Grand Total</strong></td>
+			<td>{{$sale->grand_total}}</td>
+		</tr>
+		<tr class="item">
+			<td></td>   
+			<td></td>
+			<td></td>
+			<td><strong>Paid</strong></td>
+			<td>{{$sale->p_paid_amount}}</td>
+		</tr>
+		<tr class="item">
+			<td></td>   
+			<td></td>
+			<td></td>
+			<td><strong>Due</strong></td>
+			<td>{{$sale->due_amount}}</td>
+		</tr>
 			</table>
 
 <br><br>
-      <div style="display: flex" class="row mt-5">
-        <div class="col-2 text-center">
-          <span class="small"><strong> ---------------------------</strong></span>
-          <p class="small">
-            <p><strong> Signature of the <br />Receiver</strong></p>
-        </div>
-        
-        <div style="padding-left:500px" class="col-md-5">
-          <div class="text-center mr-2">
-            <span class="small"><strong> ---------------------------</strong></span>
-            <p class="small">
-             <p><strong> Authorized<br />Signature</strong></p>
-          </div>
-        </div>
-      </div> <!-- /.row -->
 
       <div>
         <p style="float:right; font-size:small;"><strong>Powered By <span style="color: rgb(71, 207, 71)">STATA IT Limited</span></strong></p>

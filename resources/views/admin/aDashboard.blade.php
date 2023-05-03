@@ -9,7 +9,7 @@
     @php
       $sites = App\Models\Site::latest()->first();
     @endphp
-   
+
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('../assets/img/apple-icon.png') }}">
     <link rel="icon"  href="{{ asset($sites->logo) }}">
     <title>
@@ -24,6 +24,10 @@
   
     <link href="{{ asset('../assets/css/nucleo-svg.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    {{-- Chart --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('../assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet">
   

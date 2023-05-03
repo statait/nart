@@ -36,7 +36,42 @@
 			</div>
 		</div>
 	</div>
-	
+
+	<canvas id="myCharts"></canvas>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<script>
+		var ctx = document.getElementById('myCharts').getContext('2d');
+		var myChart = new Chart(ctx, {
+		  type: 'pie',
+		  data: {
+			labels: ['On Sale', 'Not on Sale'],
+			datasets: [{
+			  data: [{{ $sale }}, {{ $productss }}],
+			  backgroundColor: [
+				'rgba(255, 99, 132, 0.6)',
+				'rgba(54, 162, 235, 0.6)'
+			  ],
+			  borderColor: [
+				'rgba(255, 99, 132, 1)',
+				'rgba(54, 162, 235, 1)'
+			  ],
+			  borderWidth: 1
+			}]
+		  },
+		  options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			scales: {
+			  yAxes: [{
+				ticks: {
+				  beginAtZero: true
+				}
+			  }]
+			}
+		  }
+		});
+		</script>
 
 	  @include('admin.body.footer')
 

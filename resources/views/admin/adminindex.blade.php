@@ -25,7 +25,7 @@
 					class="mb-0 text-capitalize font-weight-bold"
 				  >
 					Today's Sale
-					
+
 				  </p>
 				
 				  <h5
@@ -677,6 +677,8 @@
 			  @endif
 			</div>
 		  </div>
+
+		 
 	</div>
 
 	<br>
@@ -684,5 +686,30 @@
 
 	@include('admin.body.footer')
   </div>
+
+@php
+  $sale = \App\Models\Product::where('status',1)->get();
+ $productss = \App\Models\Product::where('status',1)->count();
+@endphp
+
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> --}}
+
+  <div>
+	<canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+	const labels = Utils.months({count: 7});
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First Dataset',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+  </script>
 
   @endsection
