@@ -91,7 +91,8 @@
 						</h6>
 					  </td>
 					  @else
-					  <td><h6 class="text-danger">Customer Deleted </h6></td>
+					  <td><h6 style="color:red
+					  ">Customer Deleted </h6></td>
 				@endif
 					  {{-- <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td> --}}
 					  <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
