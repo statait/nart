@@ -83,7 +83,7 @@
 					  @if ($customer)
 					<td class="align-middle text-center text-sm">
 						<span class="text-lg font-weight-bold">
-						  {{$sale->customer->customer_name}}
+						  {{$item->customer->customer_name}}
 						</span>
 					  </td>
 					  @else
