@@ -121,6 +121,19 @@ class SalesController extends Controller
 		return view('admin.Backend.Sales.manage_sales',compact('sales'));
     }
 
+    public function SaleDelete($id){
+		
+        Sales::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Sale Deleted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->back()->with($notification);
+
+    } // end method
+
     public function SaleEdit ($id){
         $products = Product::orderBy('id','ASC')->get();
 		$sales = Sales::findOrFail($id);

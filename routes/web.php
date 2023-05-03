@@ -767,6 +767,8 @@ Route::prefix('product')->group(function(){
                 Route::get('/manage', [SalesController::class, 'ManageSales'])->name('sales.manage');
     
                 Route::get('/edit/{id}', [SalesController::class, 'SaleEdit'])->name('sale.edit');
+
+                Route::get('/delete/{id}', [SalesController::class, 'SaleDelete'])->name('sale.delete');
             
                 Route::get('/download/{id}', [SalesController::class, 'DownloadSale'])->name('sale.download');
                 

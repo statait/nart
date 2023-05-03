@@ -53,6 +53,9 @@
 			
 			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('sale.download',$item->id) }}"><i class="fa-solid fa-download me-2"></i>Download</a>
 
+			@if(Auth::guard('admin')->user()->type=="1" || (Auth::guard('admin')->user()->type=="2"))
+			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('sale.delete',$item->id) }}"><i class="fa-solid fa-trash me-2"></i>Delete</a>
+			@endif
  {{-- <a href="{{ route('purchase.details',$item->id) }}" class="btn btn-primary" title="Purchase View"><i class="fa fa-eye"></i> </a>
 
  <a href="{{ route('purchase.status.port',$item->id) }}" class="btn btn-info" title="Change Status"><i class="fa fa-pencil"></i> </a> --}}
