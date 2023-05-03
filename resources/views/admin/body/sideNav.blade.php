@@ -109,14 +109,14 @@ $sites = App\Models\Site::latest()->first();
 </a>
 <div class="collapse hide" id="product" style="">
 <ul class="nav ms-4 ps-3">
-  @if($category == true)
+
   <li class="nav-item ">
     <a class="nav-link {{ ($route == 'category.view')? 'active':'' }}" href="{{ route('category.view') }}">
     <span class="sidenav-mini-icon"></span>
     <span class="sidenav-normal"> Category View </span>
     </a>    
 </li>
-@endif
+
 <li class="nav-item ">
 <a class="nav-link {{ ($route == 'product.add')? 'active':'' }}" href="{{ route('product.add') }}">
 <span class="sidenav-mini-icon"></span>
