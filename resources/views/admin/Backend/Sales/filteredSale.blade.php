@@ -80,7 +80,16 @@
 				   <tr>
 					  <td><h6 class="mb-0 text-sm">{{ $item->sale_date }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->invoice }}</h6></td>
-					  <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td>
+					  @if ($customer)
+					<td class="align-middle text-center text-sm">
+						<span class="text-lg font-weight-bold">
+						  {{$sale->customer->customer_name}}
+						</span>
+					  </td>
+					  @else
+					  <td class="align-middle text-center text-sm text-danger"><span class="text-lg font-weight-bold">Customer Deleted </span></td>
+				@endif
+					  {{-- <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td> --}}
 					  <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->p_paid_amount }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->due_amount }}</h6></td>

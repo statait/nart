@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class="col">	
 					<div class="form-group">
-						<h6>Product Discount Price <span class="text-danger">*</span></h6>
+						<h6>Product Selling Price <span class="text-danger">*</span></h6>
 						<div class="controls">
 				 <input type="text" name="discount_price" class="form-control" >
 				 @error('discount_price') 
@@ -71,7 +71,7 @@
 					<div class="col">
 						
 						<div class="form-group">
-							<h6>Product Selling Price <span class="text-danger">*</span></h6>
+							<h6>Product Buying Price <span class="text-danger">*</span></h6>
 							<div class="controls">
 								<input type="text" name="selling_price" class="form-control" required="">
 					 @error('selling_price') 
