@@ -86,13 +86,12 @@
 				  @endphp
 		  
 				  @if ($customer)
-					<td class="align-middle text-center text-sm">
-						<span class="text-lg font-weight-bold">
+					<td><h6>
 						  {{$item->customer->customer_name}}
-						</span>
+						</h6>
 					  </td>
 					  @else
-					  <td class="align-middle text-center text-sm text-danger"><span class="text-lg font-weight-bold">Customer Deleted </span></td>
+					  <td class="text-danger"><h6>Customer Deleted </h6></td>
 				@endif
 					  {{-- <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td> --}}
 					  <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
