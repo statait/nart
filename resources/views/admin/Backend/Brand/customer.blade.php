@@ -17,8 +17,8 @@
 										
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address </th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email Price</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone %</th>
+											{{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th> --}}
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
 										</tr>
@@ -28,13 +28,12 @@
  @foreach($customers as $item)
  <tr>
   <td>{{ $item->customer_name }}</td>
-  <td>{{ $item->address }}</td>
-  <td>{{ $item->email }}</td>
+  <td style="white-space: initial">{{ $item->address }}</td>
+  {{-- <td>{{ $item->email }}</td> --}}
   <td>{{ $item->phone }}</td>
   <td>
-<a href="{{ route('customer.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-<a href="{{ route('customer.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
- <i class="fa fa-trash"></i></a>
+<a href="{{ route('customer.edit',$item->id) }}" class="btn btn-link text-dark px-3 mb-0" title="Edit Data"><i class="fas fa-pencil-alt text-dark me-2"></i>Edit</a>
+<a href="{{ route('customer.delete',$item->id) }}" class="btn btn-link text-danger text-gradient px-3 mb-0" title="Delete Data" id="delete"><i class="fa-solid fa-trash me-2"></i>Delete</a>
   </td>
              
  </tr>
