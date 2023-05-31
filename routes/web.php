@@ -777,6 +777,8 @@ Route::prefix('product')->group(function(){
                 Route::post('/filter', [SalesController::class, 'SaleFilter'])->name('sale.filter');
 
                 Route::get('/download', [SalesController::class, 'DownloadSalePDF'])->name('download.pdf.sale');
+
+                Route::post('/update/{id}', [SalesController::class, 'SaleUpdate'])->name('sale.update');
                 });
 
 

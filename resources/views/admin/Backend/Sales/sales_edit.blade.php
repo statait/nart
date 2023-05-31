@@ -9,7 +9,7 @@
 		  <div class="card-body p-3">
 			<div class="row">
 				
-			<form class="insert-form" id="insert_form" method="post" action="{{ route('sales.store') }}">
+			<form class="insert-form" id="insert_form" method="post" action="{{ route('sale.update', $sales->id) }}">
 			@csrf
 			<div class="row">
 				@php
@@ -150,7 +150,7 @@
 						</div>
 						<div class="row mb-2">
 							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Paid Amount</label></div>
-							<div class="col"><input value="{{$sales->p_paid_amount}}" readonly class="form-control" type="number" name="paidamount" id="paidamount">
+							<div class="col"><input value="{{$sales->p_paid_amount}}"  class="form-control" type="number" name="paidamount" id="paidamount">
 							</div>
 						</div>
 						<div class="row mb-2">
@@ -197,8 +197,8 @@
 					</div>
 				</div>
 				
-				{{-- <input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
-				Save Purchase"> --}}
+				<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+				Update">
 			</div>
 			{{-- <div class="container">
 				<div class="row">

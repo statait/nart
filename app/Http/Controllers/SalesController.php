@@ -144,6 +144,22 @@ class SalesController extends Controller
 		return view('admin.Backend.Sales.sales_edit',compact('sales','salesItems','payItems','banks','customers','products'));
     }
 
+    public function SaleUpdate(Request $request, $id){
+			
+        Sales::findOrFail($id)->update([
+            'p_paid_amount' => $request->paidamount,
+            'due_amount' => $request->dueamount,
+        ]);
+
+        $notification = array(
+            'message' => 'Sale Updated Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('sales.manage')->with($notification);
+
+        }
+
     public function DownloadSale ($id){
                     
         $sale = Sales::findOrFail($id);
