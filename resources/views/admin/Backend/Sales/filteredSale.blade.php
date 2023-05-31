@@ -138,7 +138,7 @@
 										   
 				   </tr>
 					@endforeach
-					<tr>
+					{{-- <tr>
 						<th></th>
 						<th ></th>
 						<th > </th>
@@ -146,10 +146,10 @@
 						<th > </th>
 						<th > </th>
 						<th></th>
-						{{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Selling Price</th> --}}
+						<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Selling Price</th>
 						<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{$totalProfit}}</th>
 						 
-					</tr>
+					</tr> --}}
 									  </tbody>
 									   
 									</table>
