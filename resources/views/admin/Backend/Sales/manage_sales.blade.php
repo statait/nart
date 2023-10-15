@@ -49,7 +49,7 @@
 		<td class="text-sm font-weight-bold mb-0">TK {{ $item->p_paid_amount }} </td>
 		<td><h6 class="badge badge-sm bg-gradient-success"> {{ $item->due_amount }}</h6></td>
 		<td width="20%">
-			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('sale.edit',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View</a>
+			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('sale.edit',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
 			
 			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('sale.download',$item->id) }}"><i class="fa-solid fa-download me-2"></i>Download</a>
 

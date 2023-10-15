@@ -72,17 +72,44 @@
 											  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grand Total</th>
 											  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Paid Amount</th>
 											  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Due Amount</th>
+											  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buying Price</th>
+											  {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Selling Price</th> --}}
+											  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Profit</th>
 											   
 										  </tr>
 									  </thead>
 									  <tbody>
+										@php
+										$totalProfit = 0;
+										@endphp
 				   @foreach($filtersale as $item)
 				   <tr>
 					  <td><h6 class="mb-0 text-sm">{{ $item->sale_date }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->invoice }}</h6></td>
-					  @php
+				  @php
 					  $customerV = $item->customer_id;
 					  $customer = \App\Models\Customer::find($customerV);
+
+					  $sale_id = $item->id;
+					  $productIds = \App\Models\SalesItem::where('sale_id',$sale_id)->pluck('product_id');
+					  $qtys = \App\Models\SalesItem::where('sale_id',$sale_id)->pluck('qty');
+					  
+					  $totalBuyingPrice = 0;
+					  $totalSellingPrice = 0;
+					  $profit = 0;
+
+					foreach ($productIds as $key => $productId) {
+						$product = \App\Models\Product::find($productId);
+						
+						if ($product) {
+							$qty = $qtys[$key];
+							$totalBuyingPrice += $product->selling_price * $qty;
+							$totalSellingPrice += $product->discount_price * $qty;
+							$profit = $totalSellingPrice - $totalBuyingPrice;
+							$totalProfit += $profit;
+						}
+					}
+					  
 				  @endphp
 		  
 				  @if ($customer)
@@ -98,6 +125,9 @@
 					  <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->p_paid_amount }}</h6></td>
 					  <td><h6 class="mb-0 text-sm">{{ $item->due_amount }}</h6></td>
+					  <td><h6 class="mb-0 text-sm">{{ $totalBuyingPrice }}</h6></td>
+					  {{-- <td><h6 class="mb-0 text-sm">{{ $totalSellingPrice }}</h6></td> --}}
+					  <td><h6 class="mb-0 text-sm">{{ $profit }}</h6></td>
   
 					  {{-- <td>
 			   <a class="btn btn-link text-dark px-3 mb-0" href="{{ route('product.edit',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -108,6 +138,18 @@
 										   
 				   </tr>
 					@endforeach
+					{{-- <tr>
+						<th></th>
+						<th ></th>
+						<th > </th>
+						<th > </th>
+						<th > </th>
+						<th > </th>
+						<th></th>
+						<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Selling Price</th>
+						<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{$totalProfit}}</th>
+						 
+					</tr> --}}
 									  </tbody>
 									   
 									</table>
