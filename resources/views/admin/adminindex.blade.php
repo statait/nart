@@ -610,8 +610,8 @@
 		</div>
 	  </div>
 	  
-	  <div class=" card z-index-2 col-lg-7">
-			<div class="table-responsive">
+	  <div class="card z-index-2 col-lg-7">
+			{{-- <div class="table-responsive">
 			  <div class="col-lg-12 col-12">
 				<br>
 				<h6 style="font-size:25px; ">Bank Account Status</h6>
@@ -675,8 +675,13 @@
 			  @elseif (Auth::guard('admin')->user()->type=="5" || Auth::guard('admin')->user()->type=="4" || Auth::guard('admin')->user()->type=="3" )
 
 			  @endif
-			</div>
+			</div> --}}
+
+				<canvas id="myChart"></canvas>
+
 		  </div>
+
+
 
 		 
 	</div>
@@ -688,28 +693,34 @@
   </div>
 
 @php
-  $sale = \App\Models\Product::where('status',1)->get();
+  $sale = \App\Models\Sales::orderBy('id', 'ASC')->get();
  $productss = \App\Models\Product::where('status',1)->count();
 @endphp
 
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> --}}
 
-  <div>
-	<canvas id="myChart"></canvas>
-  </div>
-
   <script>
-	const labels = Utils.months({count: 7});
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    fill: false,
-    borderColor: 'rgb(75, 192, 192)',
-    tension: 0.1
-  }]
-};
-  </script>
-
+	const labels =  {!! json_encode($sale->pluck('sale_date')) !!};
+	const data = {
+	  labels: labels,
+	  datasets: [{
+		label: 'Sales Chart',
+		data: {!! json_encode($sale->pluck('grand_total')) !!},
+		fill: false,
+		borderColor: 'rgb(75, 192, 192)',
+		tension: 0.1
+	  }]
+	};
+	
+	const config = {
+	  type: 'line',
+	  data: data,
+	  options: {}
+	};
+	
+	const myChart = new Chart(
+	  document.getElementById('myChart'),
+	  config
+	);
+	</script>
   @endsection
