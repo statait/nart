@@ -33,7 +33,9 @@
   <td>{{ $item->phone }}</td>
   <td>
 <a href="{{ route('customer.edit',$item->id) }}" class="btn btn-link text-dark px-3 mb-0" title="Edit Data"><i class="fas fa-pencil-alt text-dark me-2"></i>Edit</a>
+@if(Auth::guard('admin')->user()->type=="1" || (Auth::guard('admin')->user()->type=="2"))
 <a href="{{ route('customer.delete',$item->id) }}" class="btn btn-link text-danger text-gradient px-3 mb-0" title="Delete Data" id="delete"><i class="fa-solid fa-trash me-2"></i>Delete</a>
+@endif
   </td>
              
  </tr>
