@@ -6,7 +6,7 @@
           © <script>
             document.write(new Date().getFullYear())
           </script>,
-         Powered <i class="fa fa-heart"></i> by
+         Poweered <i class="fa fa-heart"></i> by
           <a href="#" class="font-weight-bold" target="_blank">STATA IT</a>
         </div>
       </div>
