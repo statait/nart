@@ -17,9 +17,8 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stock</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount Price</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount %</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buying Price</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Selling Price</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
 										</tr>
@@ -31,27 +30,8 @@
 					<td><p class="mb-0 text-sm">{{ $item->product_name }}</p></td>
 					<td><p class="mb-0 text-sm">{{ $item->qty }}</p></td>
 					<td class="text-sm font-weight-bold mb-0">TK {{ $item->selling_price }} </td>
-					<td class="text-sm font-weight-bold mb-0">
-					   @if($item->discount_price == NULL)
-					   <span><h6 class="mb-0 text-sm">TK 0</h6></span>
-					   @else
-						 <h6 class="badge badge-sm bg-gradient-success">TK {{ $item->discount_price }} </h6>
-					   @endif
-				   </td>
-					<td class="align-middle text-center text-sm"> 
-						@if($item->discount_price == NULL)
-						<h6 class="badge badge-sm bg-gradient-danger">No Discount</h6>
-						@else
-						@php
-						$amount = $item->selling_price - $item->discount_price;
-						$discount = ($amount/$item->selling_price) * 100;
-						@endphp
-						<h6 class="badge badge-sm bg-gradient-danger"> {{ round($discount)  }} %</h6>			
-						@endif
-					</td>
+					<td class="text-sm font-weight-bold mb-0">TK {{ $item->discount_price }} </td>
 					
-					
-			
 					<td>
 
 			 <a class="btn btn-link text-dark px-3 mb-0" href="{{ route('product.edit',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
