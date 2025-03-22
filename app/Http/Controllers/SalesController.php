@@ -147,6 +147,7 @@ class SalesController extends Controller
     public function SaleUpdate(Request $request, $id){
 			
         Sales::findOrFail($id)->update([
+            'delivery_status' => $request->delivery_status,
             'p_paid_amount' => $request->paidamount,
             'due_amount' => $request->dueamount,
         ]);

@@ -21,6 +21,7 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grand Total</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Paid</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Due</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delivery Status</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
 										</tr>
@@ -48,6 +49,7 @@
 		<td class="text-sm font-weight-bold mb-0">TK {{ $item->grand_total }} </td>
 		<td class="text-sm font-weight-bold mb-0">TK {{ $item->p_paid_amount }} </td>
 		<td><h6 class="badge badge-sm bg-gradient-success"> {{ $item->due_amount }}</h6></td>
+		<td class="text-sm font-weight-bold mb-0">{{ $item->delivery_status }}</td>
 		<td width="20%">
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('sale.edit',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
 			

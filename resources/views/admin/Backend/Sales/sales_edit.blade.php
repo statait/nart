@@ -158,8 +158,18 @@
 							<div class="col"><input value="{{$sales->due_amount}}" class="form-control" type="text" name="dueamount" id="dueamount" readonly>
 							</div>
 						</div>
-
-					
+						<hr>
+						<div class="row mb-2">
+							<div class="col-4">
+								<label class="text-uppercase text-dark text-xs font-weight-bold">Delivery Status</label>
+							</div>
+							<div class="col">
+								<select class="form-control" name="delivery_status" id="delivery_status">
+									<option value="Delivered">Delivered</option>
+									<option value="Not Delivered">Not Delivered</option>
+								</select>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -200,17 +210,6 @@
 				<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
 				Update">
 			</div>
-			{{-- <div class="container">
-				<div class="row">
-				  <div class="col">
-				  </div>
-				  <div class="col">
-					<input type="submit" class="btn bg-gradient-primary w-100" value="Add Sale">
-				  </div>
-				  <div class="col">
-				  </div>
-				</div>
-			  </div> --}}
 			
 	  </form>
 	</div>
